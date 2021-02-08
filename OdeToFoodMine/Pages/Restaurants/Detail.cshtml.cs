@@ -14,8 +14,11 @@ namespace OdeToFoodMine.Pages.Restaurants
 
 		public Restaurant Restaurant { get; set; }
 		public IRestaurantData resturantData { get; set; }
-		
-        public DetailModel(IRestaurantData restaurantData)
+
+        [TempData]
+        public string Message { get; set; }
+
+		public DetailModel(IRestaurantData restaurantData)
 		{
             this.resturantData = restaurantData;
 		}
