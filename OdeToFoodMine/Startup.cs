@@ -30,7 +30,8 @@ namespace OdeToFoodMine
 			{
 				options.UseSqlServer(Configuration.GetConnectionString("OdeToFoodMineDb"));
 			});
-			services.AddSingleton<IRestaurantData, InMemoryRestaurantData>();
+			//services.AddSingleton<IRestaurantData, InMemoryRestaurantData>();
+			services.AddScoped<IRestaurantData, SqlRestaurantData>();
 
 			services.Configure<CookiePolicyOptions>(options =>
 			{
@@ -40,7 +41,7 @@ namespace OdeToFoodMine
 			});
 
 
-			services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+			services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -60,7 +61,14 @@ namespace OdeToFoodMine
 			app.UseStaticFiles();
 			app.UseCookiePolicy();
 
-			app.UseMvc();
+			// aspnetcore30
+			app.UseRouting();
+			app.UseEndpoints(e =>
+			{
+				e.MapRazorPages();
+				e.MapControllers();
+			});
+
 		}
 	}
 }
