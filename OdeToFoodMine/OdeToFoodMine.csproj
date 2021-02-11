@@ -25,11 +25,15 @@
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.1.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.0" />
-    <PackageReference Include="OdeToCode.UseNodeModules" Version="3.0.0" />
+    <PackageReference Include="OdeToCode.UseNodeModules" Version="1.0.6" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\OdeToFoodMine.Data\OdeToFoodMine.Data.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\Api\" />
   </ItemGroup>
 
 </Project>

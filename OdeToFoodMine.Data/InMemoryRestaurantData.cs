@@ -64,5 +64,10 @@ namespace OdeToFoodMine.Data
 			}
 			return restaurant;
 		}
+
+		public int GetCountOfRestaurants()
+		{
+			return restaurants.Count();
+		}
 	}
 }

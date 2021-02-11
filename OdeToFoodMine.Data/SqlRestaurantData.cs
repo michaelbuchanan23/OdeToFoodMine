@@ -34,13 +34,17 @@ namespace OdeToFoodMine.Data
 			{
 				db.Restaurants.Remove(restaurant);
 			}
-			Commit();
 			return restaurant;
 		}
 
 		public Restaurant GetById(int? id)
 		{
 			return db.Restaurants.Find(id);
+		}
+
+		public int GetCountOfRestaurants()
+		{
+			return db.Restaurants.Count();
 		}
 
 		public IEnumerable<Restaurant> GetRestaurantsByName(string name)
